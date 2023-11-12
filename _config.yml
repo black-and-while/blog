@@ -167,9 +167,9 @@ autoprefixer:
     - '*.min.css'
 
 algolia:
-  appId: $ALGOLIA_APPID
-  apiKey: $ALGOLIA_APIKEY
-  adminApiKey: $ALGOLIA_ADMINAPIKEY
+  appId: 1S41WTJ2L2
+  apiKey: 518c927165c2c513acdbcd1ba8ec558a
+  adminApiKey: 4326eece3f083a2646885e03723a7ecd
   chunkSize: 5000
   indexName: blog-search
   fields:
