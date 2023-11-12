@@ -10,9 +10,21 @@ jobs:
     name: Build Docker image and auto deploy
     runs-on: ubuntu-latest
 
+    env:
+      ALGOLIA_APPID: ${{ secrets.ALGOLIA_APPID }}
+      ALGOLIA_APIKEY: ${{ secrets.ALGOLIA_APIKEY }}
+      ALGOLIA_ADMINAPIKEY: ${{ secrets.ALGOLIA_ADMINAPIKEY }}
+
+
     steps:
       - name: Check out
         uses: actions/checkout@v2
+
+      - name: Set up Hexo environment
+        run: |
+          echo "export ALGOLIA_APPID=${ALGOLIA_APPID}" >> $GITHUB_ENV
+          echo "export ALGOLIA_APIKEY=${ALGOLIA_APIKEY}" >> $GITHUB_ENV
+          echo "export ALGOLIA_ADMINAPIKEY=${ALGOLIA_ADMINAPIKEY}" >> $GITHUB_ENV
 
       - name: Get Tag
         id: meta

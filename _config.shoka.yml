@@ -38,9 +38,8 @@ social:
 
 # 图床配置文件
 # image_server: "https://www.dmoe.cc/random.php" # ke ke ke
-image_server: "https://t.mwm.moe/pc/"
-# https://api.horosama.com/random.php
-# https://ybapi.cn/API/pc_acgimg.php
+# image_server: "https://t.mwm.moe/pc/"
+# image_server: "https://api.vvhan.com/api/view"
 
 # Reward (Donate)
 reward:

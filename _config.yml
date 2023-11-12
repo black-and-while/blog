@@ -167,19 +167,19 @@ autoprefixer:
     - '*.min.css'
 
 algolia:
-  appId: #Your appId
-  apiKey: #Your apiKey
-  adminApiKey: #Your adminApiKey
+  appId: $ALGOLIA_APPID
+  apiKey: $ALGOLIA_APIKEY
+  adminApiKey: $ALGOLIA_ADMINAPIKEY
   chunkSize: 5000
-  indexName: #"shoka"
+  indexName: blog-search
   fields:
-    - title #必须配置
-    - path #必须配置
-    - categories #推荐配置
-    - content:strip:truncate,0,2000
-    - gallery
-    - photos
-    - tags
+  - title
+  - path
+  - categories
+  - content:strip:truncate,0,2000
+  - gallery
+  - photos
+  - tags
 
 feed:
     limit: 20
