@@ -68,7 +68,7 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  WEB 安全: WEB安全
+  WEB安全: WEB安全
   CTF: CTF
   TIPS: TIPS
   漏洞复现: 漏洞复现
