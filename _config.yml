@@ -68,10 +68,11 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  web安全: web安全
-  docker: docker
-  tips: tips
+  WEB 安全: WEB安全
+  CTF: CTF
+  TIPS: TIPS
   漏洞复现: 漏洞复现
+  渗透靶场练习: 渗透靶场练习
 tag_map:
 
 # Metadata elements
