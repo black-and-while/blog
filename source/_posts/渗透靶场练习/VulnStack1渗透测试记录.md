@@ -2,7 +2,7 @@
 title: 红日靶场 VulnStack1 渗透学习记录
 date: '2022/10/14 08:30:01'
 categories:
-  - - 漏洞复现
+  - - 渗透靶场练习
 description: 学习渗透测试的基本流程，同时进行记录
 tags:
 abbrlink:

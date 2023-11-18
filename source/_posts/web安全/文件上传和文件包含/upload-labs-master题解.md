@@ -2,7 +2,7 @@
 title: upload-labs-master题解
 date: '2022/1/23 23:15:01'
 categories:
-  - - web安全
+  - - WEB安全
     - 文件上传和文件包含
 description: 关于upload-labs-master的题解
 abbrlink: c3d18a2f

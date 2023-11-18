@@ -2,9 +2,9 @@
 title: sqlmap使用方法与实践
 date: '2022/1/23 23:15:01'
 categories:
-  - - web安全
-    - inject
-    - sql
+  - - WEB安全
+    - 注入
+    - SQL
 abbrlink: ec5a5683
 description: 使用sqlmap对dvwa上面的典型漏洞进行攻击
 tags:

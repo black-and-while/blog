@@ -2,9 +2,9 @@
 title: sql注入技巧
 date: '2022/1/23 23:15:01'
 categories:
-  - - web安全
-    - inject
-    - sql
+  - - WEB安全
+    - 注入
+    - SQL
 description: sql注入的一些绕过技巧
 abbrlink: 1c713f30
 tags:

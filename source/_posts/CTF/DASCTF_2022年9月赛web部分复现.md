@@ -1,3 +1,12 @@
+---
+title: DASCTF 2022年9月赛复现
+date: '2022/10/16 19:33:01'
+categories:
+  - - CTF
+description: DASCTF 2022年9月赛复现
+tags:
+---
+
 # DASCTF 2022年9月赛复现
 
 ## WEB
