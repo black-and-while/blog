@@ -2,7 +2,7 @@
 title: MoeCTF 2023 Web 部分复现
 date: '2023/11/18 16:05:01'
 categories:
-  - - CTF
+  - - ctf
 description: MoeCTF 2023 Web 部分复现
 tags:
 abbrlink:

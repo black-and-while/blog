@@ -2,7 +2,7 @@
 title: JS 原型链污染的学习
 date: '2022/10/06 16:05:01'
 categories:
-  - - WEB安全
+  - - web安全
 description: JavaScript 常被描述为一种基于原型的语言，而如果修改了一个对象的原型，那么将影响所有和这个对象来自同一类、父祖类的对象，这就是原型链污染
 tags:
 abbrlink:

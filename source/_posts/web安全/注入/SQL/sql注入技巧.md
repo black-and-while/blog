@@ -2,7 +2,7 @@
 title: sql注入技巧
 date: '2022/1/23 23:15:01'
 categories:
-  - - WEB安全
+  - - web安全
     - 注入
     - SQL
 description: sql注入的一些绕过技巧

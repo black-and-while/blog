@@ -2,7 +2,7 @@
 title: sqlmap使用方法与实践
 date: '2022/1/23 23:15:01'
 categories:
-  - - WEB安全
+  - - web安全
     - 注入
     - SQL
 abbrlink: ec5a5683

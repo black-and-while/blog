@@ -2,7 +2,7 @@
 title: ssrf漏洞相关函数和绕过技巧
 date: '2022/1/23 23:15:01'
 categories:
-  - - WEB安全
+  - - web安全
     - SSRF
 description: 容易产生SSRF（Server-Side Request Forgery）服务端请求伪造的常见函数，以及部分的绕过技巧
 abbrlink: c5d4cd20

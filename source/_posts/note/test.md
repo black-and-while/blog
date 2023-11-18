@@ -3,7 +3,7 @@ title: 加密test
 date: '2023/11/16 19:33:01'
 password: 123456
 categories:
-  - - TIPS
+  - - note
 description: 这是一个加密测试
 tags:
 ---

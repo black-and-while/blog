@@ -2,7 +2,7 @@
 title: XML外部实体注入 (XXE漏洞)
 date: '2022/1/23 23:15:01'
 categories:
-  - - WEB安全
+  - - web安全
     - 注入
     - XXE
 description: XXE漏洞的利用场景和流程

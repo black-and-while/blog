@@ -2,7 +2,7 @@
 title: shoka 主题搭建过程
 date: '2023/11/16 19:33:01'
 categories:
-  - - TIPS
+  - - note
 description: shoka 主题搭建过程
 tags:
 ---

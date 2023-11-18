@@ -68,9 +68,9 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  WEB安全: WEB安全
-  CTF: CTF
-  TIPS: TIPS
+  Web安全: web安全
+  CTF: ctf
+  Note: note
   漏洞复现: 漏洞复现
   渗透靶场练习: 渗透靶场练习
 tag_map:

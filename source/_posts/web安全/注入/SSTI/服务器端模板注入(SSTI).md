@@ -2,7 +2,7 @@
 title: 服务器模板注入 (SSTI)
 date: '2022/1/23 23:15:01'
 categories:
-  - - WEB安全
+  - - web安全
     - 注入
     - SSTI
 abbrlink: 1e38f0b9
