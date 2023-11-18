@@ -1,6 +1,6 @@
 ---
 title: 加密test
-date: '2022/09/17 20:01:01'
+date: '2023/11/16 19:33:01'
 password: 123456
 categories:
   - - tips
@@ -9,6 +9,6 @@ tags:
 ---
 
 
-![img](temp123.png)
+![img](https://testingcf.jsdelivr.net/gh/black-and-while/img_test/1.jpg)
 
 这是一个加密test

