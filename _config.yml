@@ -200,3 +200,6 @@ feed:
         template: "themes/shoka/layout/_alternate/json.ejs"
         output: "feed.json"
 
+# set blog password
+encrypt: # hexo-blog-encrypt
+  enable: true
