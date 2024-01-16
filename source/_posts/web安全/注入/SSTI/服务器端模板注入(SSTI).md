@@ -14,7 +14,7 @@ tags:
 
 ### 基本注入流程
 
-```
+```shell
 ''.__class__		显示这个东西的类
 ''.__class__.base__		找到这个的基类
 ''.__class__.__base__.__subclasses__()		看基类的子类
@@ -23,7 +23,7 @@ tags:
 > 敏感子类
 popen、sys、os
 
-```
+```shell
 因为''.__class__.__base__.__subclasses__()返回的是一个列表，
 所以直接''.__class__.__base__.__subclasses__()[425]查看的就是popen这个
 ```

@@ -28,7 +28,7 @@ Win7 的第一个网卡选择 “自定义 - VMnet1（仅主机模式）”，�
 Win2003、Win2008 的网络适配器设置成 “自定义 - VMnet1（仅主机模式）”
 
 因为密码过期了，Win2003、Win2008密码修改如下；
-```
+```shell
 Win2003：!Win20082022
 Win2008：!Win20032022
 ```
@@ -46,7 +46,7 @@ Win2008：192.168.52.138
 
 ### 可能出现的报错
 出现 “phpstudy 已经停止工作” 的情况，报错信息如下
-```
+```shell
 Exception EReadError in module phpStudy.exe at 0002D806.Error reading CoolTraylcon1.Visible: Cannot create shellnotification icon.
 ```
 
@@ -54,7 +54,7 @@ Exception EReadError in module phpStudy.exe at 0002D806.Error reading CoolTraylc
 
 需要先启动 Apache 服务
 进入 C:\phpStudy\Apache\bin 目录，输入下面的命令
-```
+```shell
 httpd.exe -k install
  
 httpd.exe -k -n apache2.4
@@ -63,7 +63,7 @@ httpd.exe -k -n apache2.4
 
 然后需要启动 Mysql 服务
 进入 C:\phpStudy\MySQL\bin 目录，输入下面的命令
-```
+```shell
 mysqld --defaults-file="C:/phpStudy/mysql/my.ini" --console --skip-grant-tables
 ```
 
@@ -94,7 +94,7 @@ mysqld --defaults-file="C:/phpStudy/mysql/my.ini" --console --skip-grant-tables
 用御剑好像还能扫出来一个 beifen.rar 备份文件（这里懒就没扫）
 
 下载查看beifen.rar，打开 robots.txt文件，内容如下
-```
+```shell
 #
 # robots.txt for YXCMS
 #
@@ -131,7 +131,7 @@ SHOW GLOBAL VARIABLES LIKE "%secure_file_priv%"
 secure_file_priv 的值为 NULL，所以不能用 into outfile 写马
 
 如果修改 secure_file_priv 的值，也可以写马：
-```
+```shell
 windows 下修改配置文件：mysql.ini
 linux 修改配置文件：my.cnf
 ```
@@ -267,7 +267,7 @@ migrate PID
 
 使用 ```ps``` 可以查看活跃进程
 
-```
+```shell
 PID   PPID  Name               Arch  Session  User                          Path
 ---   ----  ----               ----  -------  ----                          ----
 0     0     [System Process]
@@ -381,7 +381,7 @@ sudo apt-get install proxychains
 ```
 
 然后修改 proxychains 的配置文件 /etc/proxychains.conf
-```
+```shell
 sudo vim /etc/proxychains.conf
 ```
 

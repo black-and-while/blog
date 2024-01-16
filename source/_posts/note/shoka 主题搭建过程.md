@@ -16,7 +16,7 @@ tags:
 ### 使用 shoka 主题
 
 然后在 ```/myblog``` 目录拷贝 shoka 主题的文件到 ```./themes/shoka``` 目录下
-```
+```shell
 git clone https://github.com/amehime/hexo-theme-shoka.git ./themes/shoka
 ```
 
@@ -26,7 +26,7 @@ git clone https://github.com/amehime/hexo-theme-shoka.git ./themes/shoka
 
 按照[指引](https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/dependents/)安装插件
 
-```
+```shell
 npm un hexo-renderer-marked --save
 npm i hexo-renderer-multi-markdown-it --save
 npm install hexo-autoprefixer --save
@@ -36,14 +36,14 @@ npm install hexo-feed --save-dev
 ```
 
 安装 ```hexo-feed``` 时候还是会出现冲突，卸载原来的 7.0.0 版本，换成 6.1.0
-```
+```shell
 npm uninstall hexo -g
 npm uninstall hexo-cli -g
 npm install hexo@6.1.0 -g
 ```
 
 然后重新安装一下 ```hexo-feed```
-```
+```shell
 npm install hexo-feed --save-dev
 ```
 
@@ -53,7 +53,7 @@ npm install hexo-feed --save-dev
 
 修改 ```./myblog``` 目录下的 ```_config.yml``` 文件
 将 ```highlight``` 和 ```prismjs``` 设置为 ```false```
-```
+```shell
 highlight:
   enable: false
 
@@ -62,7 +62,7 @@ prismjs:
 ```
 
 然后在 ```_config.yml``` 文件末尾加上这一大段
-```
+```shell
 markdown:
   render: # 渲染器设置
     html: false # 过滤 HTML 标签
@@ -159,10 +159,32 @@ feed:
 
 #### 代码块显示异常问题
 
+
 主要是 hexo 的版本问题，可能目前还有兼容性问题
+我是直接改了版本，后面看到有大佬说是新的版本有新的禁用方法，不过没有再改了
+
+##### 新的禁用方法
+
+[hexo 官方文档](https://hexo.io/zh-cn/docs/syntax-highlight#%E7%A6%81%E7%94%A8)上面写了关闭 “高亮代码”，有 ```7.0以前``` 和 ```7.0以后``` 的两种写法
+
+v7.0.0及以下：
+```shell
+# _config.yml
+highlight:
+  enable: false
+prismjs:
+  enable: false
+```
+v7.0.0及以上：
+```shell
+# _config.yml
+syntax_highlighter:  # empty
+```
+
+##### 修改版本
 
 修改 ```./myblog``` 目录下的 ```package.json``` 文件
-```
+```shell
   "dependencies": {
     "hexo": "^7.0.0",
     "hexo-algoliasearch": "^1.0.0",
@@ -184,23 +206,25 @@ feed:
 > 我这里不仅把依赖降级了，我把hexo也降级了，也不知道具体是需要哪个，也可能两个都要
 
 重新全局安装 hexo 6.0
-```
+```shell
 npm install -g hexo@6.0.0
 ```
 
 然后在 ```./myblog``` 目录下更新依赖
-```
+```shell
 npm install
 ```
 
 然后重新生成就可以解决
-```
+```shell
 hexo clean
 hexo g
 hexo s
 ```
 
 > 注意：浏览器可能有缓存，记得刷新缓存
+
+
 
 #### 自定义修改
 
@@ -210,7 +234,7 @@ hexo s
 
 修改 ```themes\shoka\scripts\helpers\engine.js``` 文件
 
-```
+```shell
   var parseImage = function(img, size) {
     if (img.startsWith('//') || img.startsWith('http')) {
       return img
@@ -220,7 +244,7 @@ hexo s
   }
 ```
 改成
-```
+```shell
   var parseImage = function(img, size) {
     if (img.startsWith('//') || img.startsWith('http')) {
       return img
@@ -241,7 +265,7 @@ hexo s
 在 Setting-API Keys-All API Keys 界面，选择 New API Key，填入描述信息 Description，选择 Indices 为 ```blog-search```，在 ACL 处选择 ```search```、```browse```、```addObject```、```deleteObject```、```deletelndex```、```listIndexes```、```usage``` 
 
 修改 ```/myblog/_config.yml``` 文件中的 algolia 配置
-```
+```shell
 algolia:
   appId: **********************
   apiKey: **********************
@@ -266,7 +290,7 @@ algolia:
 
 在 ```/myblog/_config.shoka.yml``` 文件中添加 valine 配置进行覆盖
 
-```
+```shell
 valine:
   appId: #Your_appId
   appKey: #Your_appkey
